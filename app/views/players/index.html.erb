@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Players</h4>
+
+<%= link_to 'New players', players_new_path %> | <%= link_to 'Play!', players_play_path %>
+<hr>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Health</th>
+      <th>Power</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @players.each do |player| %>
+      <tr>
+        <td><%= player.name %></td>
+        <td><%= player.health %></td>
+        <td><%= player.power %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

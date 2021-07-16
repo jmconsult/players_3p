@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Players</h4>
+
+<% @states.each do |stat| %>
+
+<hr>
+<h5>Round <%= stat[:round] %>, Dead count: <%= stat[:dead_count] %> </h5>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Health</th>
+      <th>Power</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% stat[:players].each do |player| %>
+      <tr>
+        <td><%= player[:name] %></td>
+        <td><%= player[:health] %></td>
+        <td><%= player[:power] %></td>
+        <td><span style="color: <%= player[:color]%>"><%= player[:status] %></span></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% end %>
+<hr>
+The winner is "<%= @winner.name %>"!!!
+<hr>
+<%= link_to 'Return', root_path %>
